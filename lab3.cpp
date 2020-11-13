@@ -1,13 +1,19 @@
 #include <iostream>
 
-class Figura
+class BytGeometryczny
+{
+public:
+    virtual void id() const = 0;
+};
+
+class Figura : public BytGeometryczny
 {
 public:
     Figura(double pole_in) : pole(pole_in) {}
     virtual ~Figura() {}
 
-    double       getPole() const { return pole; }
-    virtual void id() const { std::cout << "Figura o polu rownym " << pole << std::endl; }
+    double getPole() const { return pole; }
+    // virtual void id() const { std::cout << "Figura o polu rownym " << pole << std::endl; }
 
 private:
     double pole;
@@ -44,13 +50,7 @@ void id(const Figura& A)
 
 int main()
 {
-    Figura* f = new Kwadrat{4};
-    id(*f);
-    delete f;
-
-    Figura* f2 = new Kolo{3};
-    id(*f2);
-    delete f2;
+    // BytGeometryczny byt;
 
     puts("Ostatnia linijka w kodzie");
 }
