@@ -47,5 +47,8 @@ int main()
     Kwadrat square{5};
     id(square);
 
+    Figura fig = static_cast< Figura >(square);
+    id(fig);
+
     puts("Ostatnia linijka w kodzie");
 }
