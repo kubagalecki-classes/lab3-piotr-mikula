@@ -3,19 +3,19 @@
 class Figura
 {
 public:
+    Figura(double pole_in) : pole(pole_in) {}
     double getPole() { return pole; }
 
-protected:
+private:
     double pole;
 };
 
 class Kolo : public Figura
 {
 public:
-    Kolo(double r_in, double pole_in) : r(r_in), pole(pole_in)
+    Kolo(double r_in) : Figura{3.1415 * r_in * r_in}
     {
-        pole = 3.1415 * r * r;
-        std::cout << "Pole kola wynosi " << pole << std::endl;
+        std::cout << "Pole kola wynosi " << getPole() << std::endl;
     }
 
 private:
@@ -25,10 +25,9 @@ private:
 class Kwadrat : public Figura
 {
 public:
-    Kwadrat(double a_in, double pole_in) : a(a_in), pole(pole_in)
+    Kwadrat(double a_in) : Figura{a_in * a_in}
     {
-        pole = a * a;
-        std::cout << "Pole kwadratu wynosi " << pole << std::endl;
+        std::cout << "Pole kwadratu wynosi " << getPole() << std::endl;
     }
 
 private:
@@ -37,5 +36,8 @@ private:
 
 int main()
 {
+    Kolo    kolko{2};
+    Kwadrat square{5};
+
     puts("Ostatnia linijka w kodzie");
 }
