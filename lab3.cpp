@@ -10,10 +10,24 @@ private:
     double pole;
 };
 
+class Kolo : public Figura
+{
+public:
+    void printKolo() { std::cout << "Klasa Kolo, dziedzicze po Figura\n"; }
+};
+
+class Kwadrat : public Figura
+{
+public:
+    void printKwadrat() { std::cout << "Klasa Kwadrat, dziedzicze po Figura\n"; }
+};
+
 int main()
 {
-    Figura f;
-    f.setPole(5);
-    std::cout << "Pole figury wynosi " << f.getPole() << std::endl;
+    Kwadrat kwad;
+    Kolo    kol;
+    kwad.printKwadrat();
+    kol.printKolo();
+
     puts("Ostatnia linijka w kodzie");
 }
