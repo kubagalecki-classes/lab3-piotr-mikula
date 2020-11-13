@@ -1,6 +1,13 @@
 #include <iostream>
 
+class Figura
+{
+public:
+private:
+    double pole;
+};
+
 int main()
 {
-    puts("Hello, World!");
+    puts("Ostatnia linijka w kodzie");
 }
