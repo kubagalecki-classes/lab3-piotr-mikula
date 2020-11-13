@@ -13,21 +13,33 @@ private:
 class Kolo : public Figura
 {
 public:
-    void printKolo() { std::cout << "Klasa Kolo, dziedzicze po Figura\n"; }
+    Kolo(double r_in) : r(r_in)
+    {
+        setPole(3.1415 * r * r);
+        std::cout << "Pole kola wynosi " << getPole() << std::endl;
+    }
+
+private:
+    double r;
 };
 
 class Kwadrat : public Figura
 {
 public:
-    void printKwadrat() { std::cout << "Klasa Kwadrat, dziedzicze po Figura\n"; }
+    Kwadrat(double a_in) : a(a_in)
+    {
+        setPole(a * a);
+        std::cout << "Pole kwadratu wynosi " << getPole() << std::endl;
+    }
+
+private:
+    double a;
 };
 
 int main()
 {
-    Kwadrat kwad;
-    Kolo    kol;
-    kwad.printKwadrat();
-    kol.printKolo();
+    Kolo    kolko{3};
+    Kwadrat square{4};
 
     puts("Ostatnia linijka w kodzie");
 }
