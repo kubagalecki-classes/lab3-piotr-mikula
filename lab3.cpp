@@ -12,7 +12,7 @@ protected:
 class Kolo : public Figura
 {
 public:
-    Kolo(double r_in) : r(r_in)
+    Kolo(double r_in, double pole_in) : r(r_in), pole(pole_in)
     {
         pole = 3.1415 * r * r;
         std::cout << "Pole kola wynosi " << pole << std::endl;
@@ -25,7 +25,7 @@ private:
 class Kwadrat : public Figura
 {
 public:
-    Kwadrat(double a_in) : a(a_in)
+    Kwadrat(double a_in, double pole_in) : a(a_in), pole(pole_in)
     {
         pole = a * a;
         std::cout << "Pole kwadratu wynosi " << pole << std::endl;
@@ -37,8 +37,5 @@ private:
 
 int main()
 {
-    Kolo    kolko{3};
-    Kwadrat square{4};
-
     puts("Ostatnia linijka w kodzie");
 }
