@@ -44,10 +44,9 @@ void id(const Figura& A)
 
 int main()
 {
-    Kwadrat square{5};
-    id(square);
-    Kolo kolko{3};
-    id(kolko);
-
+    Figura* f = new Kwadrat{4};
+    id(*f);
+    Figura* f2 = new Kolo{3};
+    id(*f2);
     puts("Ostatnia linijka w kodzie");
 }
