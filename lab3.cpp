@@ -4,7 +4,10 @@ class Figura
 {
 public:
     Figura(double pole_in) : pole(pole_in) {}
+    ~Figura() {}
+
     double getPole() { return pole; }
+    void   id() { std::cout << "Figura o polu rownym " << pole << std::endl; }
 
 private:
     double pole;
@@ -13,10 +16,10 @@ private:
 class Kolo : public Figura
 {
 public:
-    Kolo(double r_in) : Figura{3.1415 * r_in * r_in}
-    {
-        std::cout << "Pole kola wynosi " << getPole() << std::endl;
-    }
+    Kolo(double r_in) : Figura{3.1415 * r_in * r_in} {}
+    ~Kolo() {}
+
+    void id() { std::cout << "Kolo o polu rownym " << getPole() << std::endl; }
 
 private:
     double r;
@@ -25,10 +28,10 @@ private:
 class Kwadrat : public Figura
 {
 public:
-    Kwadrat(double a_in) : Figura{a_in * a_in}
-    {
-        std::cout << "Pole kwadratu wynosi " << getPole() << std::endl;
-    }
+    Kwadrat(double a_in) : Figura{a_in * a_in} {}
+    ~Kwadrat() {}
+
+    void id() { std::cout << "Kwadrat o polu rownym " << getPole() << std::endl; }
 
 private:
     double a;
@@ -36,8 +39,14 @@ private:
 
 int main()
 {
-    Kolo    kolko{2};
+    Figura fig(10);
+    fig.id();
+
+    Kolo kolko{2};
+    kolko.id();
+
     Kwadrat square{5};
+    square.id();
 
     puts("Ostatnia linijka w kodzie");
 }
