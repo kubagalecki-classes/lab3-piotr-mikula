@@ -43,6 +43,16 @@ private:
     double a;
 };
 
+class WektorFigur
+{
+public:
+    WektorFigur(int n = 0) : licznikFigur{n} {};
+
+private:
+    Figura* tablica[100];
+    int     licznikFigur;
+};
+
 void id(const Figura& A)
 {
     A.id();
@@ -50,7 +60,6 @@ void id(const Figura& A)
 
 int main()
 {
-    // BytGeometryczny byt;
 
     puts("Ostatnia linijka w kodzie");
 }
