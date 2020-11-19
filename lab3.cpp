@@ -48,6 +48,7 @@ class WektorFigur
 {
 public:
     WektorFigur() : licznikFigur{0} { tablica = new Figura[100]; }
+    ~WektorFigur() { delete[] tablica; }
 
     Figura* operator[](int n)
     {
