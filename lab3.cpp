@@ -4,6 +4,7 @@
 const int SIZE = 10;
 
 class WizytatorFigurBaza;
+class WizytatorDrukujacy;
 class BytGeometryczny;
 class Figura;
 class Kwadrat;
@@ -16,6 +17,13 @@ class WizytatorFigurBaza
 public:
     virtual void wizytuj(Kwadrat&) = 0;
     virtual void wizytuj(Kolo&)    = 0;
+};
+
+class WizytatorDrukujacy : WizytatorFigurBaza
+{
+public:
+    virtual void wizytuj(Kwadrat&) { std::cout << "Wizytator Drukujacy - Kwadrat\n"; }
+    virtual void wizytuj(Kolo&) { std::cout << "Wizytator Drukujacy - Kolo\n"; }
 };
 
 class BytGeometryczny
@@ -35,6 +43,7 @@ public:
     virtual void id() const { std::cout << "Figura o polu rownym " << pole << std::endl; }
 
     virtual void akceptuj(WizytatorFigurBaza&) = 0;
+    virtual void akceptuj(WizytatorDrukujacy&) = 0;
 
 private:
     double pole;
@@ -49,6 +58,7 @@ public:
     void id() override { std::cout << "Kolo o polu rownym " << getPole() << std::endl; }
 
     void akceptuj(WizytatorFigurBaza& v) override { v.wizytuj(*this); }
+    void akceptuj(WizytatorDrukujacy& v) override { v.wizytuj(*this); }
 };
 
 class Kwadrat : public Figura
@@ -60,6 +70,7 @@ public:
     void id() override { std::cout << "Kwadrat o polu rownym " << getPole() << std::endl; }
 
     void akceptuj(WizytatorFigurBaza& v) override { v.wizytuj(*this); }
+    void akceptuj(WizytatorDrukujacy& v) override { v.wizytuj(*this); }
 };
 
 void id(const Figura& A)
@@ -108,6 +119,12 @@ public:
     }
 
     void wizytujWszystkie(WizytatorFigurBaza& v)
+    {
+        for (int i = 0; i < licznikFigur; i++)
+            tablica[i]->akceptuj(v);
+    }
+
+    void wizytujWszystkieDrukuj(WizytatorDrukujacy& v)
     {
         for (int i = 0; i < licznikFigur; i++)
             tablica[i]->akceptuj(v);
