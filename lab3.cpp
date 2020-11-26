@@ -107,6 +107,12 @@ public:
     }
 };
 
+class WizytatorFigurBaza
+{
+    virtual void wizytuj(Kwadrat&) = 0;
+    virtual void wizytuj(Kolo&)    = 0;
+};
+
 int main()
 {
     WektorFigur  wektor;
