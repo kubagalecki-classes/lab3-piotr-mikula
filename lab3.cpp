@@ -80,6 +80,12 @@ public:
         }
     }
 
+    void idWszystkie()
+    {
+        for (int i = 0; i < licznikFigur; i++)
+            tablica[i]->id();
+    }
+
     void printLicznik() { std::cout << "Licznik = " << licznikFigur << std::endl; }
 
 private:
@@ -111,9 +117,6 @@ int main()
     wektor.push(fabryka("Kwadrat", 2));
     wektor.push(fabryka("Kolo", 2));
 
-    wektor[0]->id();
-    wektor[1]->id();
-    wektor[2]->id();
-
+    wektor.idWszystkie();
     puts("\nOstatnia linijka w kodzie");
 }
