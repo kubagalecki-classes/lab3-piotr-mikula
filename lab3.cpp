@@ -87,23 +87,33 @@ private:
     int      licznikFigur;
 };
 
+class FabrykaFigur
+{
+public:
+    Figura* operator()(const std::string& str, double n)
+    {
+        if (str == "Kwadrat")
+            return (new Kwadrat{n});
+        else if (str == "Kolo")
+            return (new Kolo{n});
+        else
+            return nullptr;
+    }
+};
+
 int main()
 {
-    Kolo    k1(4);
-    Kwadrat k2(3);
+    WektorFigur  wektor;
+    FabrykaFigur fabryka;
+    wektor.push(fabryka("Kolo", 3));
+    wektor.push(fabryka("Kwadrat", 5));
+    wektor.pop();
+    wektor.push(fabryka("Kwadrat", 2));
+    wektor.push(fabryka("Kolo", 2));
 
-    WektorFigur w1;
-    w1.push(&k1);
-    w1.printLicznik();
-    w1[0]->id();
-
-    w1.push(&k2);
-    w1.printLicznik();
-    w1[1]->id();
-
-    std::cout << "Uzycie funkcji pop\n";
-    w1.pop();
-    w1.printLicznik();
+    wektor[0]->id();
+    wektor[1]->id();
+    wektor[2]->id();
 
     puts("\nOstatnia linijka w kodzie");
 }
