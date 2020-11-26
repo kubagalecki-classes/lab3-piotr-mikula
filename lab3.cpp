@@ -3,6 +3,21 @@
 
 const int SIZE = 10;
 
+class WizytatorFigurBaza;
+class BytGeometryczny;
+class Figura;
+class Kwadrat;
+class Kolo;
+class WektorFigur;
+class FabrykaFigur;
+
+class WizytatorFigurBaza
+{
+public:
+    virtual void wizytuj(Kwadrat&) = 0;
+    virtual void wizytuj(Kolo&)    = 0;
+};
+
 class BytGeometryczny
 {
 public:
@@ -18,6 +33,8 @@ public:
 
     double       getPole() const { return pole; }
     virtual void id() const { std::cout << "Figura o polu rownym " << pole << std::endl; }
+
+    virtual void akceptuj(WizytatorFigurBaza&) = 0;
 
 private:
     double pole;
@@ -105,12 +122,6 @@ public:
         else
             return nullptr;
     }
-};
-
-class WizytatorFigurBaza
-{
-    virtual void wizytuj(Kwadrat&) = 0;
-    virtual void wizytuj(Kolo&)    = 0;
 };
 
 int main()
