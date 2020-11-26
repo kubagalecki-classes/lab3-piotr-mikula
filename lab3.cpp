@@ -153,8 +153,9 @@ public:
 
 int main()
 {
-    WektorFigur  wektor;
-    FabrykaFigur fabryka;
+    WektorFigur        wektor;
+    FabrykaFigur       fabryka;
+    WizytatorDrukujacy wizytator_d;
 
     wektor.push(fabryka("Kolo", 3));
     wektor.push(fabryka("Kwadrat", 5));
@@ -163,6 +164,8 @@ int main()
     wektor.push(fabryka("Kolo", 2));
 
     wektor.idWszystkie();
+    std::cout << "\n";
+    wektor.wizytujWszystkieDrukuj(wizytator_d);
 
     puts("\nOstatnia linijka w kodzie");
 }
