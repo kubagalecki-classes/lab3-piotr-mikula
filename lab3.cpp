@@ -107,6 +107,12 @@ public:
             tablica[i]->id();
     }
 
+    void wizytujWszystkie(WizytatorFigurBaza& v)
+    {
+        for (int i = 0; i < licznikFigur; i++)
+            tablica[i]->akceptuj(v);
+    }
+
     void printLicznik() { std::cout << "Licznik = " << licznikFigur << std::endl; }
 
 private:
@@ -132,6 +138,7 @@ int main()
 {
     WektorFigur  wektor;
     FabrykaFigur fabryka;
+
     wektor.push(fabryka("Kolo", 3));
     wektor.push(fabryka("Kwadrat", 5));
     wektor.pop();
@@ -139,5 +146,6 @@ int main()
     wektor.push(fabryka("Kolo", 2));
 
     wektor.idWszystkie();
+
     puts("\nOstatnia linijka w kodzie");
 }
