@@ -47,6 +47,8 @@ public:
     virtual ~Kolo() { std::cout << "Kolo zostalo zniszczone\n"; }
 
     void id() override { std::cout << "Kolo o polu rownym " << getPole() << std::endl; }
+
+    void akceptuj(WizytatorFigurBaza& v) override { v.wizytuj(*this); }
 };
 
 class Kwadrat : public Figura
@@ -56,6 +58,8 @@ public:
     virtual ~Kwadrat() { std::cout << "Kwadrat zostal zniszczony\n"; }
 
     void id() override { std::cout << "Kwadrat o polu rownym " << getPole() << std::endl; }
+
+    void akceptuj(WizytatorFigurBaza& v) override { v.wizytuj(*this); }
 };
 
 void id(const Figura& A)
